@@ -1,0 +1,15 @@
+delimiter//
+create function FUNC1(x int, y int, z int)
+return boolean
+deterministic
+begin
+declare y boolean;
+if (((x+y)<z )or ((x+z)<y) or  c+a>b) THEN return TRUE;
+else 
+return false;
+END IF;
+END; //
+delimiter;
+
+set @x=FUNC1(10,10,5);
+select @x from dual;

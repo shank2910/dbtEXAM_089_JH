@@ -1,0 +1,23 @@
+create table TEMPP
+(
+stringname varchar(20),
+messages varchar(10)
+);
+
+delimiter //
+create procedure PROC1(strng1 varchar(10), strng2 varchar(10))
+begin
+if instr(strng1,strng2)
+then 
+insert into TEMPP values (strng1, 'MATCH');
+end if;
+end;//
+delimiter;
+
+call PROC1("CDAC","DAC");
+CALL PROC1("CDAC","DDD");
+
+select * from TEMPP;
+truncate table TEMPP;
+drop procedure pro;
+
